@@ -47,7 +47,7 @@ p_j = 0.040
 
 noise_power = 7e-11
 
-k_n = 10
+k_n = 2
 
 def channel_gain(uav_center00, uav_center01, userte_center10, userte_center11, UAV_h):
     # 视距信道概率
@@ -229,9 +229,9 @@ class Maze(object):
 
 
         # 从 MATLAB 文件加载数据
-        mat_data = scipy.io.loadmat('fit25.mat')
+        mat_data = scipy.io.loadmat('fit21.mat')
 
-        semdm_table = mat_data['fit25']
+        semdm_table = mat_data['fit21']
 
 
         #####
@@ -259,11 +259,9 @@ class Maze(object):
 
 
         r_mn1 = bandkt_1 * ((4 * 197) / (k_n * 197)) * varpi1
-        # r_mnte1 = bandkt_te * (2 / k_n) * varpi1
         r_mnte1 = bandkt_te * (2 / 4) * varpi1
 
         r_mn2 = bandkt_2 * ((4 * 197) / (k_n * 197)) * varpi2
-        # r_mnte2 = bandkt_te * (2 / k_n) * varpi2
         r_mnte2 = bandkt_te * (2 / 4) * varpi2
 
         reward1_4 = 0
